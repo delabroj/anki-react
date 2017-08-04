@@ -9,10 +9,3 @@ const user = {
   firstName: 'Harper',
   lastName: 'Perez'
 };
-
-
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
