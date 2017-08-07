@@ -6,7 +6,7 @@ class Toggle extends React.Component {
     super(props);
     this.state = {isToggleOn: true};
 
-    
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
@@ -18,7 +18,7 @@ class Toggle extends React.Component {
   render() {
     return (
       <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? 'ON' : 'OFF'}
+
       </button>
     );
   }
