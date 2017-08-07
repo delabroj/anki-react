@@ -1,14 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function ActionLink() {
-  
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
 
-  return (
-    <a href="#" onClick={handleClick}>
-      Click me
-    </a>
-  );
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
 }
 
-ReactDOM.render(<ActionLink />, document.getElementById('root'));
+ReactDOM.render(<Toggle />, document.getElementById('root'));
