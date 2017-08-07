@@ -8,7 +8,7 @@ function ActionLink() {
   }
 
   return (
-    <a href="#" onClick={handleClick}>
+    <a href="#" >
       Click me
     </a>
   );

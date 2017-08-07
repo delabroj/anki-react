@@ -1,34 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
+function ActionLink() {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
   }
 
-  render() {
-    return (
-      <h2>{this.state.date.toLocaleTimeString()}</h2>
-    );
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
-    });
-  }
+  return (
+    <a href="#" onClick={handleClick}>
+      Click me
+    </a>
+  );
 }
 
-ReactDOM.render(<Clock />, document.getElementById('root'));
+ReactDOM.render(<ActionLink />, document.getElementById('root'));
