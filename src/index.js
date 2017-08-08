@@ -1,26 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class TextUpdate extends React.Component {
+class Reservation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      isGoing: true,
+      numberOfGuests: 2
+    };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+  
 
   render() {
     return (
       <div>
-        <input type="text" value={this.state.value} onChange={this.handleChange}/>
-        <p>{this.state.value}</p>
+        <form>
+          <label>
+            Is going:
+            <input
+              name="isGoing"
+              type="checkbox"
+              checked={this.state.isGoing}
+              onChange={this.handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Number of guests:
+            <input
+              name="numberOfGuests"
+              type="number"
+              value={this.state.numberOfGuests}
+              onChange={this.handleInputChange} />
+          </label>
+        </form>
+        <p>I am {this.state.isGoing ? '' : 'not'} going{!this.state.isGoing ? '.' : ', and so are my ' + this.state.numberOfGuests + ' guests.'}</p>
       </div>
     );
   }
 }
 
-ReactDOM.render(<TextUpdate />, document.getElementById('root'));
+ReactDOM.render(<Reservation />, document.getElementById('root'));
