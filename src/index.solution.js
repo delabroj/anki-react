@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function List() {
+  const fruit = ['apples', 'pears', 'bananas'];
+  const listItems = fruit.map((item) => <li>{item}</li>);
   return (
     <ul>
-      {[1, 2, 3, 4, 5].map((number) => <li>{number}</li>)}
+      {listItems}
     </ul>
   );
 }
