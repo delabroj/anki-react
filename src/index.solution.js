@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function ActionLink() {
-  function handleClick(e) {
-    e.preventDefault();
-    console.log('The link was clicked.');
-  }
-
+function List() {
   return (
-    <a href="#" onClick={handleClick}>
-      Click me
-    </a>
+    <ul>
+      {[1, 2, 3, 4, 5].map((number) => <li>{number}</li>)}
+    </ul>
   );
 }
 
-ReactDOM.render(<ActionLink />, document.getElementById('root'));
+ReactDOM.render(<List />, document.getElementById('root'));

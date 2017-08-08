@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function ActionLink() {
-  
-
+function List() {
   return (
-    <a href="#" onClick={handleClick}>
-      Click me
-    </a>
+    <ul>
+      
+    </ul>
   );
 }
 
-ReactDOM.render(<ActionLink />, document.getElementById('root'));
+ReactDOM.render(<List />, document.getElementById('root'));
