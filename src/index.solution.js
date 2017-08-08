@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function List() {
-  const fruit = ['apples', 'pears', 'bananas'];
-  const listItems = fruit.map((item) => <li>{item}</li>);
+function ShoppingList(props) {
+  const items = props.items;
+  const listItems = items.map((item) => <li>{item}</li>)
   return (
     <ul>
       {listItems}
@@ -11,4 +11,6 @@ function List() {
   );
 }
 
-ReactDOM.render(<List />, document.getElementById('root'));
+const fruits = ['apples', 'pears', 'bananas']
+
+ReactDOM.render(<ShoppingList items={fruits} />, document.getElementById('root'));
