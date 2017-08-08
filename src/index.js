@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom';
 
 
 
-const fruits = ['apples', 'pears', 'bananas']
+const NameForm = (
+<form >
+  <label>
+    Name:
+    <input type="text" />
+  </label>
+  <input type="submit" value="Submit" />
+</form>);
 
-ReactDOM.render(<ShoppingList items={fruits} />, document.getElementById('root'));
+ReactDOM.render(NameForm, document.getElementById('root'));
