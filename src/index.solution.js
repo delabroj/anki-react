@@ -12,7 +12,7 @@ function Term(props) {
   );
 }
 
-class Calculator extends React.Component {
+class Concat extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,4 +50,4 @@ class Calculator extends React.Component {
   }
 }
 
-ReactDOM.render(<Calculator />, document.getElementById('root'));
+ReactDOM.render(<Concat />, document.getElementById('root'));
