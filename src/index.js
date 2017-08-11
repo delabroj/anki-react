@@ -53,50 +53,45 @@ class ProductTable extends React.Component {
   }
 }
 
-
-
-class FilterableProductTable extends React.Component {
+class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      filterText: '',
-      inStockOnly: false
-    };
-
-    this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
-    this.handleInStockInput = this.handleInStockInput.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
   }
 
-  handleFilterTextInput(filterText) {
-    this.setState({
-      filterText: filterText
-    });
+  handleTextChange(e) {
+    this.props.onFilterTextInput(e.target.value);
   }
 
-  handleInStockInput(inStockOnly) {
-    this.setState({
-      inStockOnly: inStockOnly
-    })
+  handleCheckboxChange(e) {
+    this.props.onInStockInput(e.target.checked);
   }
 
   render() {
     return (
-      <div>
-        <SearchBar
-          filterText={this.state.filterText}
-          inStockOnly={this.state.inStockOnly}
-          onFilterTextInput={this.handleFilterTextInput}
-          onInStockInput={this.handleInStockInput}
+      <form>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={this.props.filterText}
+          onChange={this.handleTextChange}
         />
-        <ProductTable
-          products={this.props.products}
-          filterText={this.state.filterText}
-          inStockOnly={this.state.inStockOnly}
-        />
-      </div>
+        <p>
+          <label>
+            <input
+              type="checkbox"
+              checked={this.props.inStockOnly}
+              onChange={this.handleCheckboxChange}
+            />
+            Only show products in stock</label>
+        </p>
+      </form>
     );
   }
 }
+
+
 
 var PRODUCTS = [
   {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
