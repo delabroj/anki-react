@@ -1,34 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function BoilingVerdict(props) {
-  if (props.celsius >= 100) {
-    return <p>Boiling</p>
-  }
-  return <p>Not boiling</p>
+function Term(props) {
+  return (
+    <input
+      type="text"
+      name={props.name}
+      value={props.value}
+      onChange={props.handleChange}
+    />
+  );
 }
 
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {first: '', second: '', concat: ''};
     this.handleChange = this.handleChange.bind(this);
-    this.state = {temperature: ''};
+    this.concat = this.concat.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({temperature: e.target.value});
+  handleChange(event) {
+    this.setState({[event.target.name]: event.target.value});
+    this.concat();
   }
+
+  concat() {
+    this.setState(
+      prevState => ({concat: prevState.first + prevState.second})
+    );
+  }
+
+  termNames = ['first', 'second'];
 
   render() {
     return (
-      <fieldset>
-        <legend>Enter temperature in Celsius:</legend>
-        <input
-          value={this.state.temperature}
-          onChange={this.handleChange} />
-        <BoilingVerdict
-          celsius={parseFloat(this.state.temperature)} />
-      </fieldset>
+      <div>
+        {this.termNames.map(name => (
+          <Term
+            key={name}
+            value={this.state[name]}
+            handleChange={this.handleChange}
+            name={name} />
+        ))}
+        <p>{this.state.concat}</p>
+      </div>
     );
   }
 }
