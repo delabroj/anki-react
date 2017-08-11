@@ -1,23 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-
-class ProductRow extends React.Component {
+class ProductCategoryRow extends React.Component {
   render() {
-    var name = this.props.product.stocked ?
-      this.props.product.name :
-      <span style={{color: 'red'}}>
-        {this.props.product.name}
-      </span>;
-    return (
-      <tr>
-        <td>{name}</td>
-        <td>{this.props.product.price}</td>
-      </tr>
-    );
+    return (<tr><th colSpan="2">{this.props.category}</th></tr>);
   }
 }
+
+
 
 class ProductTable extends React.Component {
   render() {
