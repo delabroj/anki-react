@@ -1,45 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Reservation extends React.Component {
+function BoilingVerdict(props) {
+  if (props.celsius >= 100) {
+    return <p>Boiling</p>
+  }
+  return <p>Not boiling</p>
+}
+
+class Calculator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isGoing: true,
-      numberOfGuests: 2
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {temperature: ''};
   }
 
-  
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
+  }
 
   render() {
     return (
-      <div>
-        <form>
-          <label>
-            Is going:
-            <input
-              name="isGoing"
-              type="checkbox"
-              checked={this.state.isGoing}
-              onChange={this.handleInputChange} />
-          </label>
-          <br />
-          <label>
-            Number of guests:
-            <input
-              name="numberOfGuests"
-              type="number"
-              value={this.state.numberOfGuests}
-              onChange={this.handleInputChange} />
-          </label>
-        </form>
-        <p>I am {this.state.isGoing ? '' : 'not'} going{!this.state.isGoing ? '.' : ', and so are my ' + this.state.numberOfGuests + ' guests.'}</p>
-      </div>
+      <fieldset>
+        <legend>Enter temperature in Celsius:</legend>
+        <input
+          value={this.state.temperature}
+          onChange={this.handleChange} />
+        
+      </fieldset>
     );
   }
 }
 
-ReactDOM.render(<Reservation />, document.getElementById('root'));
+ReactDOM.render(<Calculator />, document.getElementById('root'));
