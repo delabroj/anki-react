@@ -78,13 +78,13 @@ class SearchBar extends React.Component {
           onChange={this.handleTextChange}
         />
         <p>
-          <input
-            type="checkbox"
-            checked={this.props.inStockOnly}
-            onChange={this.handleCheckboxChange}
-          />
-          {' '}
-          Only show products in stock
+          <label>
+            <input
+              type="checkbox"
+              checked={this.props.inStockOnly}
+              onChange={this.handleCheckboxChange}
+            />
+            Only show products in stock</label>
         </p>
       </form>
     );
