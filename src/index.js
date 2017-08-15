@@ -7,16 +7,28 @@ class App extends Component {
     return (
       <div>
         <Router history={browserHistory}>
-          <Route path='/' component={Home} />
-          <Route path='/address' component={Address} />
-          <Route path='/third' component={Third} />
-          <Route path='*' component={NotFound} />
+          <Route path='/' component={Container}>
+            <IndexRoute component={Home} />
+            <Route path='address' component={Address} />
+            <Route path='third' component={Third} />
+            <Route path='*' component={NotFound} />
+          </Route>
         </Router>
         <Footer />
       </div>
     )
   }
 }
+
+const Address = () => (
+  <div>
+    <h1>We are located at:</h1>
+    <h2>555 Jackson St.</h2>
+  </div>
+);
+
+const Twitter = () => <h3>Twitter Feed</h3>
+const Instagram = () => <h3>Instagram Feed</h3>
 
 const Container = (props) => (
   <div>
@@ -40,13 +52,6 @@ const Navigate = () => (
 const Home = () => (
   <div>
     <h1>Hello from Home!</h1>
-  </div>
-);
-
-const Address = () => (
-  <div>
-    <h1>We are located at:</h1>
-    <h2>555 Jackson St.</h2>
   </div>
 );
 
