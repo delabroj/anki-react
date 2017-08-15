@@ -49,9 +49,9 @@ const NotFound = () => (
 
 const Navigate = () => (
   <div>
-    <Link to="/">Home</Link>&nbsp;
-    <Link to="/address">Address</Link>&nbsp;
-    <Link to="/third">Third</Link>&nbsp;
+    <Link onlyActiveOnIndex activeStyle={{color:'teal'}} to="/">Home</Link>&nbsp;
+    <Link activeStyle={{color:'teal'}} to="/address">Address</Link>&nbsp;
+    <Link activeStyle={{color:'teal'}} to="/third">Third</Link>&nbsp;
   </div>
 );
 

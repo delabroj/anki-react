@@ -9,7 +9,10 @@ class App extends Component {
         <Router history={browserHistory}>
           <Route path='/' component={Container}>
             <IndexRoute component={Home} />
-            <Route path='address' component={Address} />
+            <Route path='address' component={Address}>
+              <IndexRoute component={Twitter} />
+              <Route path='instagram' component={Instagram} />
+            </Route>
             <Route path='third' component={Third} />
             <Route path='*' component={NotFound} />
           </Route>
@@ -20,10 +23,13 @@ class App extends Component {
   }
 }
 
-const Address = () => (
+const Address = (props) => (
   <div>
     <h1>We are located at:</h1>
     <h2>555 Jackson St.</h2>
+    <Link to="/address">Twitter</Link>&nbsp;
+    <Link to="/address/instagram">Instagram</Link>
+    {props.children}
   </div>
 );
 
