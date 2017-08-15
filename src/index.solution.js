@@ -9,11 +9,7 @@ class App extends Component {
         <Router history={browserHistory}>
           <Route path='/' component={Container}>
             <IndexRoute component={Home} />
-            <Route path='address' component={Address}>
-              <IndexRoute component={Twitter} />
-              <Route path='instagram' component={Instagram} />
-            </Route>
-            <Route path='third' component={Third} />
+            <Route path='about/:name' component={About} />
             <Route path='*' component={NotFound} />
           </Route>
         </Router>
@@ -23,18 +19,11 @@ class App extends Component {
   }
 }
 
-const Address = (props) => (
+const About = (props) => (
   <div>
-    <h1>We are located at:</h1>
-    <h2>555 Jackson St.</h2>
-    <Link to="/address">Twitter</Link>&nbsp;
-    <Link to="/address/instagram">Instagram</Link>
-    {props.children}
+    <h1>Hello, {props.params.name}</h1>
   </div>
 );
-
-const Twitter = () => <h3>Twitter Feed</h3>
-const Instagram = () => <h3>Instagram Feed</h3>
 
 const Container = (props) => (
   <div>
@@ -49,21 +38,14 @@ const NotFound = () => (
 
 const Navigate = () => (
   <div>
-    <Link onlyActiveOnIndex activeClassName="active" to="/">Home</Link>&nbsp;
-    <Link activeClassName="active" to="/address">Address</Link>&nbsp;
-    <Link activeClassName="active" to="/third">Third</Link>&nbsp;
+    <Link to="/">Home</Link>&nbsp;
+    <Link to="/about/dude">About</Link>&nbsp;
   </div>
 );
 
 const Home = () => (
   <div>
     <h1>Hello from Home!</h1>
-  </div>
-);
-
-const Third = () => (
-  <div>
-    <h1>This is the third page.</h1>
   </div>
 );
 

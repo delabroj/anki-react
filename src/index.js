@@ -9,11 +9,7 @@ class App extends Component {
         <Router history={browserHistory}>
           <Route path='/' component={Container}>
             <IndexRoute component={Home} />
-            <Route path='address' component={Address}>
-              <IndexRoute component={Twitter} />
-              <Route path='instagram' component={Instagram} />
-            </Route>
-            <Route path='third' component={Third} />
+
             <Route path='*' component={NotFound} />
           </Route>
         </Router>
@@ -23,18 +19,7 @@ class App extends Component {
   }
 }
 
-const Address = (props) => (
-  <div>
-    <h1>We are located at:</h1>
-    <h2>555 Jackson St.</h2>
-    <Link to="/address">Twitter</Link>&nbsp;
-    <Link to="/address/instagram">Instagram</Link>
-    {props.children}
-  </div>
-);
 
-const Twitter = () => <h3>Twitter Feed</h3>
-const Instagram = () => <h3>Instagram Feed</h3>
 
 const Container = (props) => (
   <div>
@@ -50,20 +35,13 @@ const NotFound = () => (
 const Navigate = () => (
   <div>
     <Link to="/">Home</Link>&nbsp;
-    <Link to="/address">Address</Link>&nbsp;
-    <Link to="/third">Third</Link>&nbsp;
+    <Link to="/about/dude">About</Link>&nbsp;
   </div>
 );
 
 const Home = () => (
   <div>
     <h1>Hello from Home!</h1>
-  </div>
-);
-
-const Third = () => (
-  <div>
-    <h1>This is the third page.</h1>
   </div>
 );
 
