@@ -10,11 +10,11 @@ class Greeting extends React.Component {
   }
 }
 
-Greeting.defaultProps = {
-  name: 'Stranger'
-};
+Greeting.propTypes = {
+  name: PropTypes.string
+}
 
 ReactDOM.render(
-  <Greeting />,
+  <Greeting name={1} />,
   document.getElementById('root')
 );
