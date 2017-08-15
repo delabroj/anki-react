@@ -1,23 +1,18 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function HeadBody(props) {
-  return (
-    <div>
-      <h1>Header</h1>
-      <p>body</p>
-    </div>
-  );
+class Greeting extends React.Component {
+  render() {
+    return (
+      <h1>Hello, {this.props.name}</h1>
+    );
+  }
 }
 
-const element = (
-  <div>
-    <HeadBody />
-    <HeadBody showHeader={true} />
-  </div>
-);
+
 
 ReactDOM.render(
-  element,
+  <Greeting />,
   document.getElementById('root')
 );
