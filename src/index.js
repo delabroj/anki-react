@@ -19,7 +19,11 @@ class App extends Component {
   }
 }
 
-
+const Query = (props) => (
+  <div>
+    <p>message: {props.location.query.message}</p>
+  </div>
+);
 
 const Container = (props) => (
   <div>
@@ -35,7 +39,7 @@ const NotFound = () => (
 const Navigate = () => (
   <div>
     <Link to="/">Home</Link>&nbsp;
-    <Link to="/query?message=hello">Query</Link>&nbsp;
+    <Link to='/query?message=Hello'>Query</Link>&nbsp;
   </div>
 );
 

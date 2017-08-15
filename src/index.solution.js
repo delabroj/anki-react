@@ -39,7 +39,10 @@ const NotFound = () => (
 const Navigate = () => (
   <div>
     <Link to="/">Home</Link>&nbsp;
-    <Link to="/query?message=hello">Query</Link>&nbsp;
+    <Link to={{
+      pathname: '/query',
+      query: { message: 'Hello' }
+    }}>Query</Link>&nbsp;
   </div>
 );
 
