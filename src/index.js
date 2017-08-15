@@ -6,20 +6,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        My App
+        <Router history={browserHistory}>
+          <Route path='/' component={Home} />
+          <Route path='/address' component={Address} />
+          <Route path='/third' component={Third} />
+        </Router>
         <Footer />
       </div>
     )
   }
 }
 
-const Navigate = () => (
-  <div>
-    <Link to="/">Home</Link>&nbsp;
-    <Link to="/address">Address</Link>&nbsp;
-    <Link to="/third">Third</Link>&nbsp;
-  </div>
-);
+
 
 const Home = () => (
   <div>
