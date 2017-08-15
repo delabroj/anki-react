@@ -9,7 +9,7 @@ class App extends Component {
         <Router history={browserHistory}>
           <Route path='/' component={Container}>
             <IndexRoute component={Home} />
-            <Route path='/about/:name' component={About} />
+            <Route path='query' component={Query} />
             <Route path='*' component={NotFound} />
           </Route>
         </Router>
@@ -19,11 +19,7 @@ class App extends Component {
   }
 }
 
-const About = (props) => (
-  <div>
-    <h1>Hello, {props.params.name}</h1>
-  </div>
-);
+
 
 const Container = (props) => (
   <div>
@@ -39,7 +35,7 @@ const NotFound = () => (
 const Navigate = () => (
   <div>
     <Link to="/">Home</Link>&nbsp;
-    <Link to="/about/dude">About</Link>&nbsp;
+    <Link to="/query?message=hello">Query</Link>&nbsp;
   </div>
 );
 
