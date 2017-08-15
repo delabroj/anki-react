@@ -1,20 +1,60 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { Link, Router, Route, browserHistory } from 'react-router'
 
-class Greeting extends React.Component {
+class App extends Component {
   render() {
     return (
-      <h1>Hello, {this.props.name}</h1>
-    );
+      <div>
+        <Router history={browserHistory}>
+          <Route path='/' component={Home} />
+          <Route path='/address' component={Address} />
+          <Route path='/third' component={Third} />
+        </Router>
+        <Footer />
+      </div>
+    )
   }
 }
 
-Greeting.propTypes = {
-  name: PropTypes.any.isRequired
-}
+const Navigate = () => (
+  <div>
+    <Link to="/">Home</Link>&nbsp;
+    <Link to="/address">Address</Link>&nbsp;
+    <Link to="/third">Third</Link>&nbsp;
+  </div>
+);
+
+const Home = () => (
+  <div>
+    <Navigate />
+    <h1>Hello from Home!</h1>
+  </div>
+);
+
+const Address = () => (
+  <div>
+    <Navigate />
+    <h1>We are located at:</h1>
+    <h2>555 Jackson St.</h2>
+  </div>
+);
+
+const Third = () => (
+  <div>
+    <Navigate />
+    <h1>This is the third page.</h1>
+  </div>
+);
+
+const Footer = () => (
+  <div>
+    <hr />
+    <p>Copyright 2025</p>
+  </div>
+);
 
 ReactDOM.render(
-  <Greeting />,
+  <App />,
   document.getElementById('root')
 );
