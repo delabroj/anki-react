@@ -9,7 +9,7 @@ class App extends Component {
         <Router history={browserHistory}>
           <Route path='/' component={Container}>
             <IndexRoute component={Home} />
-            <Route path='about/:name' component={About} />
+            <Route path='/about(/:name)' component={About} />
             <Route path='*' component={NotFound} />
           </Route>
         </Router>
@@ -21,7 +21,7 @@ class App extends Component {
 
 const About = (props) => (
   <div>
-    <h1>Hello, {props.params.name}</h1>
+    <h1>Hello, {props.params.name ? props.params.name : 'visitor'}</h1>
   </div>
 );
 
