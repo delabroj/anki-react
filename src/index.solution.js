@@ -10,12 +10,17 @@ class App extends Component {
           <Route path='/' component={Home} />
           <Route path='/address' component={Address} />
           <Route path='/third' component={Third} />
+          <Route path='*' component={NotFound} />
         </Router>
         <Footer />
       </div>
     )
   }
 }
+
+const NotFound = () => (
+  <h1>404.. This page is not found!</h1>
+)
 
 const Navigate = () => (
   <div>

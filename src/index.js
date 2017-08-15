@@ -10,6 +10,7 @@ class App extends Component {
           <Route path='/' component={Home} />
           <Route path='/address' component={Address} />
           <Route path='/third' component={Third} />
+          
         </Router>
         <Footer />
       </div>
@@ -17,7 +18,17 @@ class App extends Component {
   }
 }
 
+const NotFound = () => (
+  <h1>404.. This page is not found!</h1>
+)
 
+const Navigate = () => (
+  <div>
+    <Link to="/">Home</Link>&nbsp;
+    <Link to="/address">Address</Link>&nbsp;
+    <Link to="/third">Third</Link>&nbsp;
+  </div>
+);
 
 const Home = () => (
   <div>
