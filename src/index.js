@@ -14,6 +14,7 @@ class App extends Component {
               <Route path='instagram' component={Instagram} />
             </Route>
             <Route path='third' component={Third} />
+            
             <Route path='*' component={NotFound} />
           </Route>
         </Router>
@@ -22,6 +23,21 @@ class App extends Component {
     )
   }
 }
+
+const Title = () => (
+  <h1>Hello from Title Component</h1>
+)
+
+const SubTitle = () => (
+  <h1>Hello from SubTitle Component</h1>
+)
+
+const NamedComponents = (props) => (
+	<div>
+    {props.title}<br />
+    {props.subTitle}
+	</div>
+)
 
 const Address = (props) => (
   <div>
@@ -52,6 +68,7 @@ const Navigate = () => (
     <Link to="/">Home</Link>&nbsp;
     <Link to="/address">Address</Link>&nbsp;
     <Link to="/third">Third</Link>&nbsp;
+    <Link to="/namedcomponents">Named Components</Link>&nbsp;
   </div>
 );
 
