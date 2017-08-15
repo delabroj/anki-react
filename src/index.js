@@ -13,6 +13,6 @@ class Greeting extends React.Component {
 
 
 ReactDOM.render(
-  <Greeting name={1} />,
+  <Greeting />,
   document.getElementById('root')
 );

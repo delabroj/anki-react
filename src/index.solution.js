@@ -11,10 +11,10 @@ class Greeting extends React.Component {
 }
 
 Greeting.propTypes = {
-  name: PropTypes.string
+  name: PropTypes.any.isRequired
 }
 
 ReactDOM.render(
-  <Greeting name={1} />,
+  <Greeting />,
   document.getElementById('root')
 );
