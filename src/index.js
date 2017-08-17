@@ -39,7 +39,8 @@ const NotFound = () => (
 const Navigate = () => (
   <div>
     <Link to="/">Home</Link>&nbsp;
-    <Link to="/about/dude">About</Link>&nbsp;
+    <Link to="/about">About</Link>&nbsp;
+    <Link to="/about/dude">About/dude</Link>&nbsp;
   </div>
 );
 
