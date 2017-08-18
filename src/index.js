@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 function ActionLink() {
   function handleClick(e) {
     e.preventDefault();
-    console.log('The link was clicked.');
+    alert('The link was clicked.');
   }
 
   return (
